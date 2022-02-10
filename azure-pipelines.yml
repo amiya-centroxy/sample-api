@@ -59,7 +59,7 @@ stages:
       artifact: drop
 
 - stage: Deploy
-  displayName: 'Deploy on Virtual'
+  displayName: 'Deploymentjob1'
   dependsOn: Build
   condition: succeeded()
   jobs:
