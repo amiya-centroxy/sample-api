@@ -61,7 +61,8 @@ stages:
   condition: succeeded()
   jobs:
   - deployment: DeploymentJob
-    pool: $(vmImageName)
+    pool: 
+      vmImage: $(vmImageName)
     environment: $(environmentName)
     strategy:
       runOnce:
@@ -73,9 +74,9 @@ stages:
               versionSpec: '$(pythonVersion)'
             displayName: 'Use Python version'
 
-          - task: AzureRMWebAppDeployment@1
-            displayName: 'Deploy Azure Rm : amiya'
-            inputs:
-              azureSubscription: $(azureServiceConnectionId)
-              deploymentgroupsname: Amiya
-              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+jobs: 
+-  deployment: VMDeploy
+   displayName: web
+   environment:
+    name: amiya
+    resourceType: VirtualMachine
