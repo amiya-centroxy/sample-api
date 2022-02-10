@@ -75,7 +75,4 @@ stages:
             displayName: 'Use Python version'
      
           - script: 
-              pip install virtualenv
-              virtualenv venv
-              source venv/bin/activate
               python run.py
