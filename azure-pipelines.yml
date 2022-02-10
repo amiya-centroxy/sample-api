@@ -64,9 +64,9 @@ stages:
   condition: succeeded()
   jobs:
   - deployment: DeploymentJob
-    pool:
-      vmImage: $(vmImageName)
-    deploymentgroupsname: $(deploymentgroupsName)
+    pool: 
+     vmImage: $(vmImageName)
+     deploymentgroupsname: $(deploymentgroupsName)
     strategy:
       runOnce:
         deploy:
