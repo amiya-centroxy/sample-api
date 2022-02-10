@@ -73,10 +73,10 @@ stages:
             inputs:
               versionSpec: '$(pythonVersion)'
             displayName: 'Use Python version'
-
-job: 
--  deployment: VMDeploy
-   displayName: web
-   environment:
-    name: amiya
+            
+jobs: 
+- deployment: VMDeploy
+  displayName: web
+  environment:
+    name: <environment name>
     resourceType: VirtualMachine
