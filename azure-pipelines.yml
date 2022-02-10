@@ -63,7 +63,7 @@ stages:
   dependsOn: Build
   condition: succeeded()
   jobs:
-  - deployment:
+  - deployment: Deploymentjob@1
     pool: 
      vmImage: $(vmImageName)
      enviromentname: $(enviromentname)
