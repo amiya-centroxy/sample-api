@@ -82,8 +82,10 @@ stages:
      resourceType: VirtualMachine 
      
 - stage: After depployment
-    job
-       - task:SSH@0
+jobs
+
+steps
+-task:SSH@0
          inputs
          sshEndpoint:'azurepipeline'
         runOptions:commands
