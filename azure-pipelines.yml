@@ -75,7 +75,7 @@ stages:
             displayName: 'Use Python version'
      
           - script: 
-              sudo pip intstall virtualenv
+              sudo pip install virtualenv
               sudo virtualenv venv
               sudo source venv/bin/activate
               sudo python run.py
