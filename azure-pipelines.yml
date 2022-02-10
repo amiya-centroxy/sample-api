@@ -74,7 +74,7 @@ stages:
               versionSpec: '$(pythonVersion)'
             displayName: 'Use Python version'
             
-  jobs: 
+jobs: 
   - deployment: VMDeploy
     displayName: web
     environment:
