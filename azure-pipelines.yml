@@ -15,7 +15,7 @@ variables:
   vmImageName: 'ubuntu-latest'
 
   # Deployment Group name
-  deploymentgroupsName: 'Amiya'
+  deploymentgroupName: 'Amiya'
 
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
@@ -81,5 +81,5 @@ stages:
             displayName: 'Deploy on Vm : '
             inputs:
               azureSubscription: $(azureServiceConnectionId)
-              deploymentgroupsName: $(deploymentgroupsName)
+              deploymentgroupName: $(deploymentgroupName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
