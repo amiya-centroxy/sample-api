@@ -73,17 +73,8 @@ stages:
             inputs:
               versionSpec: '$(pythonVersion)'
             displayName: 'Use Python version'
-            
- 
-  - deployment: VMDeploy
-    displayName: web
-    environment:
-     name: amiya
-     resourceType: VirtualMachine 
      
-          - task:PythonScript@0
-            inputs
-                  scriptSource:'inline'
-                  script:|
-                  virtulenv venv
-                   python run.py
+          - script: 
+              virtualenv venv
+              source venv/bin/activate
+              python run.py
