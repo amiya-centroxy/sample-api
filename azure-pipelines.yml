@@ -59,7 +59,7 @@ stages:
       artifact: drop
 
 - stage: Deploy
-  displayName: 'Deploy Vm'
+  displayName: 'Deploy on Virtual'
   dependsOn: Build
   condition: succeeded()
   jobs:
@@ -78,7 +78,7 @@ stages:
             displayName: 'Use Python version'
 
           - task: Vm@1
-            displayName: 'Deploy on Vm : '
+            displayName: 'Deploy on virtual'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               enviromentname: $(enviromentname)
