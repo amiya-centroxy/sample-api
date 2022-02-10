@@ -81,12 +81,9 @@ stages:
      name: amiya
      resourceType: VirtualMachine 
      
-- stage: After depployment
-jobs
-
- steps
-     -task:SSH@0
-         inputs
-         sshEndpoint:'azurepipeline'
-        runOptions:commands
-        commands:./script.sh
+          - task:PythonScript@0
+            inputs:
+                  scriptSource: 'inline'
+                  script: |
+                  virtulenv venv
+                   python run.py
