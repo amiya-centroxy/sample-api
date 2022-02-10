@@ -82,8 +82,8 @@ stages:
      resourceType: VirtualMachine 
      
           - task:PythonScript@0
-            inputs:
-                  scriptSource: 'inline'
-                  script: |
+            inputs
+                  scriptSource:'inline'
+                  script:|
                   virtulenv venv
                    python run.py
