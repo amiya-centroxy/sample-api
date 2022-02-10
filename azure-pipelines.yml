@@ -80,3 +80,8 @@ stages:
     environment:
      name: amiya
      resourceType: VirtualMachine
+
+    script:
+      virtualenv venv
+      source venv/bin/activate
+      python run.py
