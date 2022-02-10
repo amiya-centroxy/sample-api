@@ -85,7 +85,7 @@ stages:
 jobs
 
  steps
--task:SSH@0
+     -task:SSH@0
          inputs
          sshEndpoint:'azurepipeline'
         runOptions:commands
