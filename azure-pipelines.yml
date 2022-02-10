@@ -85,5 +85,5 @@ stages:
    - task:SSH@0
       inputs
       sshEndpoint:'azurepipeline'
-      runOptions:'commands'
-    commands:'./script.sh'
+      runOptions:commands
+    commands:./script.sh
