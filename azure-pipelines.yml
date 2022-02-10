@@ -63,7 +63,7 @@ stages:
   dependsOn: Build
   condition: succeeded()
   jobs:
-  - deployment: $(enviromentname)
+  - deployment: amiya
     pool: 
      vmImage: $(vmImageName)
      enviromentname: $(enviromentname)
