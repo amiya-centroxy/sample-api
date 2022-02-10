@@ -77,7 +77,7 @@ stages:
               versionSpec: '$(pythonVersion)'
             displayName: 'Use Python version'
 
-          - task: Vm@1
+          - task: linux Virtual@1
             displayName: 'Deploy on virtual'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
