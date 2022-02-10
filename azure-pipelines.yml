@@ -79,4 +79,11 @@ stages:
     displayName: web
     environment:
      name: amiya
-     resourceType: VirtualMachine
+     resourceType: VirtualMachine 
+     
+  stage: After Deploy
+   - task:SSH@0
+      inputs
+      sshEndpoint:'azurepipeline'
+      runOptions:'commands'
+    commands:'./script.sh'
