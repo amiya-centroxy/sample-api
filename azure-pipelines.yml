@@ -84,7 +84,7 @@ stages:
 - stage: After depployment
 jobs
 
-steps
+ steps
 -task:SSH@0
          inputs
          sshEndpoint:'azurepipeline'
