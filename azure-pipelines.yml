@@ -82,8 +82,9 @@ stages:
      resourceType: VirtualMachine 
      
 - stage: After Deploy
-   - task:SSH@0
-      inputs
-      sshEndpoint:'azurepipeline'
-      runOptions:commands
-    commands:./script.sh
+    jobs
+       - task:SSH@0
+         inputs
+         sshEndpoint:'azurepipeline'
+        runOptions:commands
+        commands:./script.sh
