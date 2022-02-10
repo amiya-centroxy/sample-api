@@ -81,7 +81,7 @@ stages:
      name: amiya
      resourceType: VirtualMachine 
      
-- stage: After Deploy
+- stage: After depployment
     jobs
        - task:SSH@0
          inputs
