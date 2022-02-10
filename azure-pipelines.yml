@@ -78,5 +78,5 @@ stages:
             displayName: 'Deploy Azure Rm : amiya'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
-              environmentName: $(environmentName)
+              deploymentgroupsname: Amiya
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
