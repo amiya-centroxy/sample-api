@@ -14,7 +14,7 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
-  # Deployment Group name
+  # EnviromentName name
   enviromentName: 'amiya'
 
   # Project root folder. Point to the folder containing manage.py file.
