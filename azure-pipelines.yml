@@ -15,7 +15,7 @@ variables:
   environmentName: 'amiya'
 
   # Project root folder. Point to the folder containing manage.py file.
-  projectRoot: $(System.DefaultWorkingDirectory)
+  projectRoot: '/home/azureuser/test'
 
   # Python version: 3.7
   pythonVersion: '3.7'
@@ -83,5 +83,5 @@ stages:
           # The following parameter is specific to the Flask example code. You may
           # or may not need a startup command for your app.
 
-        startUpCommand: 'gunicorn --bind=0.0.0.0 --workers=4 manage:app'
+            startUpCommand: 'gunicorn --bind=0.0.0.0 --workers=4 manage:app'
                
