@@ -58,6 +58,7 @@ stages:
 
 - stage: Deploy
   displayName: 'Deploy on VM'
+  Deploypath: /home/azureuser/test/artifact
   dependsOn: Build
   condition: succeeded()
   jobs:
@@ -65,24 +66,12 @@ stages:
     pool: 
       vmImage: $(vmImageName)
     environment: $(environmentName)
+    
+    displayName: 
     strategy:
       runOnce:
         deploy:
           steps:
-          - task: UsePythonVersion@0
-            inputs:
-             versionSpec: '$(pythonVersion)'
-            displayName: 'Use Python version'
-
-          - task: PublishPipelineArtifact@1
-            displayName: 'PublishPipelineArtifact : {{ vmImageName }}'
-            inputs:
-              azureSubscription: $(azureServiceConnectionId)
-              environmentName: $(environmentName)
-              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-
-          # The following parameter is specific to the Flask example code. You may
-          # or may not need a startup command for your app.
 
           - script: python manage.py
                
