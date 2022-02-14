@@ -15,7 +15,7 @@ variables:
   environmentName: 'amiya'
 
   # Project root folder. Point to the folder containing manage.py file.
-  projectRoot: $(System.DefaultWorkingDirectory)
+  projectRoot: amiya-centroxy/sample-api
 
   # Python version: 3.7
   pythonVersion: '3.7'
