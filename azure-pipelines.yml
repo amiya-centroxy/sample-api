@@ -69,12 +69,7 @@ stages:
         deploy:
           steps:
 
-          - task: UsePythonVersion@0
-            inputs:
-              versionSpec: '$(pythonVersion)'
-            displayName: 'Use Python version'
-     
-       - script: |
-            virtulenv venv
-            source venv/bin/activate
-            python run.py
+    script: |
+        virtulenv venv
+        source venv/bin/activate
+        python run.py
