@@ -69,6 +69,6 @@ stages:
         deploy:
           steps:
           - script: |
-               virtualenv venv
+               python -m virtualenv venv
                source venv/bin/activate
                python run.py
