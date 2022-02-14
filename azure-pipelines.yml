@@ -67,7 +67,8 @@ stages:
     strategy:
       runOnce:
         deploy:
-    script: |
-        virtulenv venv
-        source venv/bin/activate
-        python run.py
+          steps:
+          - script: |
+               virtulenv venv
+               source venv/bin/activate
+               python run.py
