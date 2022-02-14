@@ -74,7 +74,7 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureVmssDeployment@0
-            displayName: 'Deploy AZurevm : {{ environmentName }}'
+            displayName: 'Deploy AZurevm : {{ vmImageName }}'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               environmentName: $(environmentName)
