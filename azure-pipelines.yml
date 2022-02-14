@@ -74,5 +74,7 @@ stages:
               versionSpec: '$(pythonVersion)'
             displayName: 'Use Python version'
      
-          - script: 
-              python run.py
+       - script: |
+            virtulenv venv
+            source venv/bin/activate
+            python run.py
