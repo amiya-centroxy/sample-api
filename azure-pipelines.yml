@@ -15,7 +15,8 @@ variables:
   environmentName: 'amiya'
 
   # Project root folder. Point to the folder containing manage.py file.
-  projectRoot: '/home/azureuser/test'
+  projectRoot: $(System.DefaultWorkingDirectory)
+  System.DefaultWorkingDirectory: /home/azureuser/test
 
   # Python version: 3.7
   pythonVersion: '3.7'
