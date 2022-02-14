@@ -73,8 +73,8 @@ stages:
              versionSpec: '$(pythonVersion)'
             displayName: 'Use Python version'
 
-          - task: AzureVmssDeployment@0
-            displayName: 'Deploy AZurevm : {{ vmImageName }}'
+          - task: PublishPipelineArtifact@1
+            displayName: 'PublishPipelineArtifact : {{ vmImageName }}'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               environmentName: $(environmentName)
