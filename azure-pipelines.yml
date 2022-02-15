@@ -59,7 +59,6 @@ stages:
        sourceFolder: '$(System.DefaultWorkingDirectory)/_amiya-centroxy.sample-api1/drop'
        contents: 
       targetFolder: '/home/azureuse'
-        readyTimeout: '20000'
    displayName: 'Upload package'
       artifact: drop
 
