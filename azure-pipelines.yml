@@ -58,8 +58,8 @@ stages:
        sshEndpoint: 'azurepipeline'
        sourceFolder: '$(System.DefaultWorkingDirectory)/_amiya-centroxy.sample-api1/drop'
        contents: 
-      targetFolder: '/home/azureuse'
-   displayName: 'Upload package'
+       targetFolder: '/home/azureuse'
+      displayName: 'Upload package'
       artifact: drop
 
 - stage: Deploy
@@ -74,5 +74,7 @@ stages:
     displayName: 
     strategy:
       runOnce:
-        - script: python manage.py
+        deploy:
+         steps:
+           - script: python manage.py
           
