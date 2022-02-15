@@ -56,11 +56,11 @@ stages:
     - task: CopyFilesOverSSH@0
       inputs:
        sshEndpoint: 'azurepipeline'
-       sourceFolder: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+       sourceFolder: '$(System.DefaultWorkingDirectory)/_amiya-centroxy.sample-api1/drop'
        contents: 
-     targetFolder: /home/azureuser
-     readyTimeout: '20000'
-displayName: 'Upload package'
+      targetFolder: '/home/azureuse'
+        readyTimeout: '20000'
+   displayName: 'Upload package'
       artifact: drop
 
 - stage: Deploy
