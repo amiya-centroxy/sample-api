@@ -52,28 +52,24 @@ stages:
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
 
-    - upload: 
-    - task: CopyFilesOverSSH@0
-      inputs:
-       sshEndpoint: 'azurepipeline'
-       sourceFolder: '$(System.DefaultWorkingDirectory)/_amiya-centroxy.sample-api1/drop'
-       contents: 
-       targetFolder: '/home/azureuse'
-      displayName: 'Upload package'
 
-- stage: Deploy
-  displayName: 'Deploy on VM'
-  dependsOn: Build
-  condition: succeeded()
-  jobs:
-  - deployment: DeploymentJob
-    pool: 
-      vmImage: $(vmImageName)
-    environment: $(environmentName)
-    displayName: 
+  - job: 
+  - deployment: VMDeploy
+    displayName: web
+    environment:
+     name: 'amiya'
+     resourceType: VirtualMachine
     strategy:
-      runOnce:
+      rolling:
+        maxParallel: 2  #for percentages, mention as x%
+        preDeploy:
+          steps:
+          - download: current
+            artifact: drop
+          - script: echo initialize, cleanup, backup, install certs
         deploy:
-         steps:
-           - script: python manage.py
-          
+          steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: python manage.py
