@@ -58,7 +58,6 @@ stages:
 
 - stage: Deploy
   displayName: 'Deploy on VM'
-  Deploypath: /home/azureuser/test/artifact
   dependsOn: Build
   condition: succeeded()
   jobs:
