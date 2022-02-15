@@ -58,7 +58,7 @@ stages:
        sshEndpoint: 'azurepipeline'
        sourceFolder: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
        contents: 
-     targetFolder: '/home/azureuser'
+     targetFolder: /home/azureuser
      readyTimeout: '20000'
 displayName: 'Upload package'
       artifact: drop
