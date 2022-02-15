@@ -52,8 +52,15 @@ stages:
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
 
-    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-      displayName: 'Upload package'
+    - upload: 
+    - task: CopyFilesOverSSH@0
+      inputs:
+       sshEndpoint: 'azurepipeline'
+       sourceFolder: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+       contents: 
+     targetFolder: '/home/azureuser'
+     readyTimeout: '20000'
+displayName: 'Upload package'
       artifact: drop
 
 - stage: Deploy
@@ -68,7 +75,5 @@ stages:
     displayName: 
     strategy:
       runOnce:
-        postRouteTraffic:
-         steps:
-           - script: python manage.py
+        - script: python manage.py
           
