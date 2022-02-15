@@ -65,12 +65,10 @@ stages:
     pool: 
       vmImage: $(vmImageName)
     environment: $(environmentName)
-    
     displayName: 
     strategy:
       runOnce:
-        deploy:
-          steps:
-
-          - script: python3 manage.py
-               
+        postRouteTraffic:
+         steps:
+           - script: python manage.py
+          
