@@ -60,7 +60,6 @@ stages:
        contents: 
        targetFolder: '/home/azureuse'
       displayName: 'Upload package'
-      artifact: drop
 
 - stage: Deploy
   displayName: 'Deploy on VM'
