@@ -73,5 +73,5 @@ stages:
         deploy:
           steps:
 
-          - script: python manage.py
+          - script: python3 manage.py
                
