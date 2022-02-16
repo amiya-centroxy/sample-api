@@ -1,4 +1,4 @@
-8789456# Change python version to one thats appropriate for your application.
+# Change python version to one thats appropriate for your application.
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
