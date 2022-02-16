@@ -1,4 +1,4 @@
-# Change python version to one thats appropriate for your application.
+8789456# Change python version to one thats appropriate for your application.
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
@@ -36,6 +36,7 @@ stages:
     - script: |
         python -m venv antenv
         source antenv/bin/activate
+        python manage.py
         python -m pip install --upgrade pip
         pip install setup
         pip install -r requirements.txt
