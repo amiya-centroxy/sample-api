@@ -59,12 +59,11 @@ stages:
        targetPath: '$(Pipeline.Workspace)'
        artifact: 'drop'
        fileSharePath: 'pipeline'
-    - task: CopyFiles@2
+    
+    - task: SSH@0
       inputs:
-       SourceFolder: '$(Pipeline.Workspace)' 
-       ignoreMakeDirErrors: true
-       TargetFolder: $(build.artifactstagingdirectory)
-       OverWrite: true
-
-         
- 
+         sshEndpoint: 'azurepipeline'
+         runOptions: 'commands'
+         commands: 'scp $(Pipeline.Workspace) amiya@40.122.168.29:/home'
+         interactiveSession: true
+         readyTimeout: '20000'
