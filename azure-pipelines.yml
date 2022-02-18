@@ -68,7 +68,7 @@ stages:
 
          
   - job:
-  - deployment: DeploymentJob
+  - deployment: Deployment
   pool:
    vmImage: $(vmImageName)
    environment: 
