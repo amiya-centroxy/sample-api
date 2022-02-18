@@ -60,10 +60,9 @@ stages:
        artifact: 'drop'
        fileSharePath: 'pipeline'
     
-    - task: SSH@0
+    - task: CopyFiles@2
       inputs:
-         sshEndpoint: 40.122.168.29:22
-         runOptions: 'commands'
-         commands: 'scp $(Pipeline.Workspace) amiya@40.122.168.29:/home'
-         interactiveSession: true
-         readyTimeout: '20000'
+       SourceFolder: '$(Pipeline.Workspace)'
+       Contents: '**'
+       TargetFolder: '/home/amiya'
+       OverWrite: true
