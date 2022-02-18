@@ -65,6 +65,6 @@ stages:
        sshEndpoint: 'azurepipeline'
        sourceFolder: '$(Pipeline.Workspace)'
        contents: '**'
-       targetFolder: '/home/amiya/'
+       targetFolder: '40.122.168.29@/home/amiya/'
        cleanTargetFolder: true
        readyTimeout: '20000'
