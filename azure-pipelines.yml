@@ -62,7 +62,7 @@ stages:
     
     - task: SSH@0
       inputs:
-         sshEndpoint: 'azurepipeline'
+         sshEndpoint: 40.122.168.29:22
          runOptions: 'commands'
          commands: 'scp $(Pipeline.Workspace) amiya@40.122.168.29:/home'
          interactiveSession: true
