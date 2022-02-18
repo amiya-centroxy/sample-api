@@ -8,7 +8,7 @@ variables:
   # Azure Resource Manager connection created during pipeline creation
   azureServiceConnectionId: 'ecea4a36-f33b-4812-878a-490381d10286'
 
-  remotehost: 40.122.168.29
+  
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -72,10 +72,11 @@ stages:
       steps:
       - download: current
         artifact: drop
+        target: /home
       - script: echo initialize, cleanup, backup, install certs
 
       - task: Bash@3
-      inputs:
+        displayName: deploying application
         targetType: 'inline'
         script: python manage.py
 
