@@ -60,10 +60,12 @@ stages:
        artifact: 'drop'
        fileSharePath: 'pipeline'
     
-    - task: CopyFiles@2
-      inputs:
-       ignoreMakeDirErrors: true
-       SourceFolder: '$(Pipeline.Workspace)'
-       Contents: '**'
-       TargetFolder: '/home/amiya'
-       OverWrite: true
+    - 
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'azurepipeline'
+    sourceFolder: '$(Pipeline.Workspace)'
+    contents: '**'
+    targetFolder: '/home/amiya/'
+    cleanTargetFolder: true
+    readyTimeout: '20000'
