@@ -62,6 +62,7 @@ stages:
     
     - task: CopyFiles@2
       inputs:
+       ignoreMakeDirErrors: true
        SourceFolder: '$(Pipeline.Workspace)'
        Contents: '**'
        TargetFolder: '/home/amiya'
