@@ -63,7 +63,7 @@ stages:
       inputs:
        SourceFolder: '$(Pipeline.Workspace)' 
        ignoreMakeDirErrors: true
-       TargetFolder: /
+       TargetFolder: $(build.artifactstagingdirectory)
        OverWrite: true
 
          
