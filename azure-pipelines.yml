@@ -62,7 +62,7 @@ stages:
       inputs:
         SourceFolder: '$(Pipeline.Workspace)'
         Contents: '**'
-        TargetFolder: '/amiya'
+        TargetFolder: '/'
         CleanTargetFolder: true
         OverWrite: true
         ignoreMakeDirErrors: true
