@@ -65,7 +65,6 @@ stages:
     displayName: web
     environment:
      name: amiya
-     resourceType: VirtualMachine
     strategy:
       rolling:
         maxParallel: 2  #for percentages, mention as x%
