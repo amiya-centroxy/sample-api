@@ -52,16 +52,19 @@ stages:
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
 
-    - task: AzureFileCopy@4
+    - task: PublishPipelineArtifact@1
       inputs:
-        SourcePath: '$(Pipeline.Workspace)'
-        azureSubscription: 'Free Trial (b843e926-887c-44f5-b8d2-892bc2979df8)'
-        Destination: 'AzureVMs'
-        storage: 'centroxy'
-        resourceGroup: 'DEFAULTRESOURCEGROUP-CUS'
-        vmsAdminUserName: 'amiya'
-        vmsAdminPassword: 'Ami@12345678'
-        TargetPath: '/home'
-        CleanTargetBeforeCopy: 'true'
-        artifact: 'drop'
-        fileSharePath: 'pipeline'
+       targetPath: '$(Pipeline.Workspace)'
+       artifact: 'drop'
+       fileSharePath: 'pipeline'
+    
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(Pipeline.Workspace)'
+        Contents: '**'
+        TargetFolder: '/amiya'
+        CleanTargetFolder: true
+        OverWrite: true
+        ignoreMakeDirErrors: true
+    
+    
