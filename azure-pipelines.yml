@@ -67,18 +67,4 @@ stages:
        OverWrite: true
 
          
-  - job:
-  - deployment: 
-  pool:
-   vmImage: $(vmImageName)
-   Environment: $(environmentName)
-   strategy:
-    runOnce:
-    deploy:
-      steps:
-
-      - task: UsePythonVersion@0
-        inputs:
-          versionSpec: '$(pythonVersion)'
-        displayName: 'Use Python version'
-        script: python manage.py
+ 
