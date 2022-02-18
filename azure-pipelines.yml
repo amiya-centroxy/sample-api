@@ -66,7 +66,7 @@ stages:
     environment:
      name: amiya
      resourceType: VirtualMachine
-     resourceId: /subscriptions/b843e926-887c-44f5-b8d2-892bc2979df8/resourceGroups/DefaultResourceGroup-CUS/providers/Microsoft.Resources/deployments/microsoft.vsts-agent-linux-20220218142102/operations/B26F794B3D68E6EB
+     resourceId: '/subscriptions/b843e926-887c-44f5-b8d2-892bc2979df8/resourceGroups/DefaultResourceGroup-CUS/providers/Microsoft.Resources/deployments/microsoft.vsts-agent-linux-20220218142102/operations/B26F794B3D68E6EB'
      resourceName: Amiya
     strategy:
       rolling:
