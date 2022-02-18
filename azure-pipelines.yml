@@ -61,7 +61,8 @@ stages:
        fileSharePath: 'pipeline'
     - task: CopyFiles@2
       inputs:
-       SourceFolder: '$(Pipeline.Workspace)'
+       SourceFolder: '$(Pipeline.Workspace)' 
+       ignoreMakeDirErrors: true
        TargetFolder: /home
        OverWrite: true
 
