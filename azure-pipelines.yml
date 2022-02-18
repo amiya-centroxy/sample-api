@@ -59,6 +59,7 @@ stages:
        fileSharePath: 'pipeline'
     
     - task: CopyFilesOverSSH@0
+      remotehost: 40.122.168.29
       inputs:
         sshEndpoint: 'azurepipeline'
         sourceFolder: '$(Pipeline.Workspace)'
