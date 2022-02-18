@@ -65,15 +65,12 @@ stages:
     displayName: web
     environment:
      name: amiya 
-    strategy:
-      rolling:
-        maxParallel: 2  #for percentages, mention as x%
-        preDeploy:
+    preDeploy:
           steps:
           - download: current
             artifact: drop
           - script: echo initialize, cleanup, backup, install certs
-        deploy:
+    deploy:
           steps:
           - task: Bash@3
             inputs:
