@@ -59,8 +59,7 @@ stages:
        targetPath: '$(Pipeline.Workspace)'
        artifact: 'drop'
        fileSharePath: 'pipeline'
-    
-    - 
+       
     - task: CopyFilesOverSSH@0
       inputs:
        sshEndpoint: 'azurepipeline'
