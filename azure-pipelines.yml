@@ -59,27 +59,26 @@ stages:
        targetPath: '$(Pipeline.Workspace)'
        artifact: 'drop'
        fileSharePath: 'pipeline'
-    
-  - job: 
-  - deployment: VMDeploy
-    displayName: web
-    environment:
-     name: amiya
-     resourceType: VirtualMachine
-     resourceId: /subscriptions/b843e926-887c-44f5-b8d2-892bc2979df8/resourceGroups/DefaultResourceGroup-CUS/providers/Microsoft.Compute/virtualMachines/Amiya/extensions/TeamServicesAgentLinux
-     resourceName: Amiya/TeamServicesAgentLinux
-    strategy:
-      rolling:
-        maxParallel: 2  #for percentages, mention as x%
-        preDeploy:
-          steps:
-          - download: current
-            artifact: drop
-          - script: echo initialize, cleanup, backup, install certs
-        deploy:
-          steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: python manage.py
-    
+    - task: CopyFiles@2
+      inputs:
+       SourceFolder: '$(Pipeline.Workspace)'
+       TargetFolder: /home
+       CleanTargetFolder: true
+       OverWrite: true
+
+         
+  - job:
+  - deployment: DeploymentJob
+  pool:
+   vmImage: $(vmImageName)
+   environment: $(environmentName)
+   strategy:
+    runOnce:
+    deploy:
+      steps:
+
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '$(pythonVersion)'
+        displayName: 'Use Python version'
+        script: python manage.py
