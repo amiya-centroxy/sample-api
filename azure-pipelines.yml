@@ -62,6 +62,6 @@ stages:
         vmsAdminUserName: 'amiya'
         vmsAdminPassword: 'Ami@12345678'
         TargetPath: '/home'
-        CleanTargetBeforeCopy: true'
+        CleanTargetBeforeCopy: 'true'
         artifact: 'drop'
         fileSharePath: 'pipeline'
