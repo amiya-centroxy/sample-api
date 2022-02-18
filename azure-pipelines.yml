@@ -8,6 +8,8 @@ variables:
   # Azure Resource Manager connection created during pipeline creation
   azureServiceConnectionId: 'ecea4a36-f33b-4812-878a-490381d10286'
 
+  remotehost: '40.122.168.29'
+
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
@@ -59,7 +61,6 @@ stages:
        fileSharePath: 'pipeline'
     
     - task: CopyFilesOverSSH@0
-      remotehost: 40.122.168.29
       inputs:
         sshEndpoint: 'azurepipeline'
         sourceFolder: '$(Pipeline.Workspace)'
