@@ -52,8 +52,16 @@ stages:
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
 
-    - task: PublishPipelineArtifact@1
+    - task: AzureFileCopy@4
       inputs:
-       targetPath: '$(Pipeline.Workspace)'
-       artifact: 'drop'
-       fileSharePath: 'pipeline'
+        SourcePath: '$(Pipeline.Workspace)'
+        azureSubscription: 'Free Trial (b843e926-887c-44f5-b8d2-892bc2979df8)'
+        Destination: 'AzureVMs'
+        storage: 'centroxy'
+        resourceGroup: 'DEFAULTRESOURCEGROUP-CUS'
+        vmsAdminUserName: 'amiya'
+        vmsAdminPassword: 'Ami@12345678'
+        TargetPath: '/home'
+        CleanTargetBeforeCopy: true'
+        artifact: 'drop'
+        fileSharePath: 'pipeline'
