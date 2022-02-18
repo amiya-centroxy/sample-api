@@ -65,16 +65,18 @@ stages:
     displayName: web
     environment:
      name: amiya 
-    preDeploy:
-          steps:
-          - download: current
-            artifact: drop
-          - script: echo initialize, cleanup, backup, install certs
-    deploy:
-          steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: python manage.py
+- stage: Depoly
+  displayName: predeploy
+  jobs:
+    - job: 
+      steps:
+      - download: current
+        artifact: drop
+      - script: echo initialize, cleanup, backup, install certs
+
+      - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: python manage.py
 
     
