@@ -61,11 +61,11 @@ stages:
        fileSharePath: 'pipeline'
     
     - 
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: 'azurepipeline'
-    sourceFolder: '$(Pipeline.Workspace)'
-    contents: '**'
-    targetFolder: '/home/amiya/'
-    cleanTargetFolder: true
-    readyTimeout: '20000'
+    - task: CopyFilesOverSSH@0
+      inputs:
+       sshEndpoint: 'azurepipeline'
+       sourceFolder: '$(Pipeline.Workspace)'
+       contents: '**'
+       targetFolder: '/home/amiya/'
+       cleanTargetFolder: true
+       readyTimeout: '20000'
