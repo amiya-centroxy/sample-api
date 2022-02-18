@@ -74,10 +74,6 @@ stages:
         artifact: drop
         target: /home
       - script: echo initialize, cleanup, backup, install certs
-
-      - task: Bash@3
-        displayName: deploying application
-        targetType: 'inline'
-        script: python manage.py
+      - script: python manage.py
 
     
