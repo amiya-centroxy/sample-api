@@ -66,6 +66,8 @@ stages:
     environment:
      name: amiya
      resourceType: VirtualMachine
+     resourceId: DefaultResourceGroup-CUS-vnet/default
+     resourceName: Amiya
     strategy:
       rolling:
         maxParallel: 2  #for percentages, mention as x%
