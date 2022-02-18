@@ -71,7 +71,7 @@ stages:
   - deployment: 
   pool:
    vmImage: $(vmImageName)
-   environmentname: amiya
+   Environmentname: amiya
    strategy:
     runOnce:
     deploy:
