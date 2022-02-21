@@ -45,17 +45,29 @@ stages:
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
 
-    - task: ArchiveFiles@2
-      displayName: 'Archive files'
+    - task: CopyFiles@2
+      displayName: 'Copy Files to artifact staging directory'
       inputs:
-        rootFolderOrFile: '$(projectRoot)'
-        includeRootFolder: false
-        archiveType: zip
-        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-        replaceExistingArchive: true
-
-    - task: PublishPipelineArtifact@1
-      inputs:
-       targetPath: '$(Pipeline.Workspace)'
-       artifact: 'drop'
-       fileSharePath: 'pipeline'
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        TargetFolder: $(Build.ArtifactStagingDirectory)
+    - upload: $(Build.ArtifactStagingDirectory)
+      artifact: drop
+  
+  - job:
+  - deployment: VMDeploy
+    displayName: web
+  pool:
+    vmImage: 'ubuntu-latest'
+    environment:
+    name: amiya
+    resourceType: VirtualMachine
+    strategy:
+    runOnce:
+      deploy:
+        steps:
+        - script: python -m venv antenv
+              source antenv/bin/activate
+              python manage.py
+              python -m pip install --upgrade pip
+              pip install setup
+              pip install -r requirements.txt
