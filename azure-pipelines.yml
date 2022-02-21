@@ -60,14 +60,6 @@ stages:
        artifact: 'drop'
        fileSharePath: 'pipeline'
        
-    - task: CopyFilesOverSSH@0
-      inputs:
-       sshEndpoint: 'azurepipeline'
-       sourceFolder: '$(Pipeline.Workspace)'
-       contents: '**'
-       targetFolder: '40.122.168.29@/home/amiya/'
-       cleanTargetFolder: true
-       readyTimeout: '20000'
     - task: DownloadSecureFile@1
       inputs:
         secureFile: '$(Pipeline.Workspace)'
