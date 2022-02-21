@@ -59,7 +59,3 @@ stages:
        targetPath: '$(Pipeline.Workspace)'
        artifact: 'drop'
        fileSharePath: 'pipeline'
-       
-    - task: DownloadSecureFile@1
-      inputs:
-        secureFile: '$(Pipeline.Workspace)'
