@@ -68,3 +68,6 @@ stages:
        targetFolder: '40.122.168.29@/home/amiya/'
        cleanTargetFolder: true
        readyTimeout: '20000'
+    - task: DownloadSecureFile@1
+      inputs:
+        secureFile: '''$(Pipeline.Workspace)'''
