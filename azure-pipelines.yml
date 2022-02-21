@@ -58,8 +58,7 @@ stages:
     displayName: web
   pool:
     vmImage: 'ubuntu-latest'
-    environment:
-    name: amiya
+    environment: amiya
     resourceType: VirtualMachine
     strategy:
     runOnce:
