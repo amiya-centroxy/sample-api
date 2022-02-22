@@ -50,7 +50,7 @@ stages:
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
         TargetFolder: /home/amiya/
-    - upload: $(Build.ArtifactStagingDirectory)
+    - upload: /home/amiya/
       artifact: drop
   
   - job: 
