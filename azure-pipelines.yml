@@ -49,7 +49,7 @@ stages:
       displayName: 'Copy Files to artifact staging directory'
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
-        TargetFolder: /home/
+        TargetFolder: /home/amiya/
     - upload: $(Build.ArtifactStagingDirectory)
       artifact: drop
   
