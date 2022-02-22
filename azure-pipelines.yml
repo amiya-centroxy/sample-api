@@ -49,8 +49,8 @@ stages:
       displayName: 'Copy Files to artifact staging directory'
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
-        TargetFolder: /home/root/amiya/
-    - upload: /home/root/amiya/
+        TargetFolder: /amiya/
+    - upload: /amiya/
       artifact: drop
   
   - job: 
@@ -64,7 +64,7 @@ stages:
         maxParallel: 2  #for percentages, mention as x%
         preDeploy:
           steps:
-          - script: sudo mkdir -p /home/root/amiya/
+          - script: sudo mkdir /amiya
           - download: current
             artifact: drop
           
