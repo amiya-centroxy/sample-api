@@ -64,7 +64,7 @@ stages:
         maxParallel: 2  #for percentages, mention as x%
         preDeploy:
           steps:
-          - script: mkdir -p /home/root/amiya/
+          - script: sudo mkdir -p /home/root/amiya/
           - download: current
             artifact: drop
           
