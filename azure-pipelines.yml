@@ -51,7 +51,7 @@ stages:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
         TargetFolder: $(Build.ArtifactStagingDirectory)
     - upload: $(Build.ArtifactStagingDirectory)
-      artifact: drop
+      artifact: antenv
   
   - job: 
   - deployment: VMDeploy
@@ -65,7 +65,7 @@ stages:
         preDeploy:
           steps:
           - download: current
-            artifact: drop
+            artifact: antenv
           
         deploy:
           steps:
