@@ -46,7 +46,7 @@ stages:
       inputs:
               buildType: 'current'
               artifactName: 'drop'
-              targetPath: '$(Pipeline.Workspace)'
+              targetPath: '$(Build.ArtifactStagingDirectory)'
   
   - job: 
   - deployment: VMDeploy
