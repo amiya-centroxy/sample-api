@@ -53,6 +53,8 @@ stages:
         runOptions: 'commands'
         commands: |
           ssh amiya@40.77.89.174
+          user: amiya
+          password: Ami@12345678
         interactiveSession: true
         readyTimeout: '20000'
   
