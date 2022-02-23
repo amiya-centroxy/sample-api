@@ -47,6 +47,15 @@ stages:
               buildType: 'current'
               artifactName: 'drop'
               targetPath: '$(Build.ArtifactStagingDirectory)'
+    - task: SSH@0
+      inputs:
+        sshEndpoint: 'azurepipeline'
+        runOptions: 'commands'
+        commands: |
+          chown -R root:root $(Build.ArtifactStagingDirectory)
+          chmod 755 $(Build.ArtifactStagingDirectory)
+        interactiveSession: true
+        readyTimeout: '20000'
   
   - job: 
   - deployment: VMDeploy
@@ -69,8 +78,7 @@ stages:
           - task: Bash@3
             inputs:
               targetType: 'inline'
-              script: chown -R root:root $(Build.ArtifactStagingDirectory)
-                      chmod 755 $(Build.ArtifactStagingDirectory)
+              script: 
                       python -m venv antenv
                       source antenv/bin/activate
                       python manage.py
