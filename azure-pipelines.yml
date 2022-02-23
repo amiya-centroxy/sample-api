@@ -52,8 +52,7 @@ stages:
         sshEndpoint: 'azurepipeline'
         runOptions: 'commands'
         commands: |
-          chown -R root:root $(Build.ArtifactStagingDirectory)
-          chmod 755 $(Build.ArtifactStagingDirectory)
+          ssh amiya@40.77.89.174
         interactiveSession: true
         readyTimeout: '20000'
   
@@ -67,8 +66,8 @@ stages:
       rolling:
         maxParallel: 2  #for percentages, mention as x%
         
-            
-          
+
+
         deploy:
           steps:
           - task: Bash@3
