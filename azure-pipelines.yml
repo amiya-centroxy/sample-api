@@ -57,7 +57,10 @@ stages:
     strategy:
       rolling:
         maxParallel: 2  #for percentages, mention as x%
-        
+        preDeploy:
+          steps:
+          - download: current
+            artifact: drop
 
 
         deploy:
