@@ -49,7 +49,7 @@ stages:
               targetPath: '$(Build.ArtifactStagingDirectory)'
     - task: SSH@0
       inputs:
-        sshEndpoint: amiya@40.77.89.174
+        sshEndpoint: azurepipeline
         runOptions: 'commands'
         commands: |
           ssh amiya@40.77.89.174
