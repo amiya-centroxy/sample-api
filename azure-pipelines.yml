@@ -34,13 +34,12 @@ stages:
       inputs:
         versionSpec: '$(pythonVersion)'
       displayName: 'Use Python $(pythonVersion)'
-    - task: CopyFiles@2
-      displayName: 'Copy Files to artifact staging directory'
+
+    - task: DownloadPipelineArtifact@2
       inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
-        TargetFolder: $(Build.ArtifactStagingDirectory)
-    - upload: $(Build.ArtifactStagingDirectory)
-      artifact: drop
+              buildType: 'current'
+              artifactName: 'drop'
+              targetPath: '$(Build.ArtifactStagingDirectory)'
   
   - job: 
   - deployment: VMDeploy
@@ -55,11 +54,7 @@ stages:
           steps:
           - download: current
             artifact: drop
-          - task: DownloadPipelineArtifact@2
-            inputs:
-              buildType: 'current'
-              artifactName: 'drop'
-              targetPath: '$(Build.ArtifactStagingDirectory)'
+          
             
           
         deploy:
