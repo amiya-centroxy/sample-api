@@ -47,14 +47,6 @@ stages:
               buildType: 'current'
               artifactName: 'drop'
               targetPath: '$(Build.ArtifactStagingDirectory)'
-
-    - task: SSH@0
-      inputs:
-          sshEndpoint: 'azurepipeline'
-          runOptions: 'inline'
-          inline: 'ssh amiya@40.77.89.174'
-          interpreterCommand: '$(Build.ArtifactStagingDirectory)'
-          readyTimeout: '20000'
   
   - job: 
   - deployment: VMDeploy
