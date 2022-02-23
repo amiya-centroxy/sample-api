@@ -34,24 +34,13 @@ stages:
       inputs:
         versionSpec: '$(pythonVersion)'
       displayName: 'Use Python $(pythonVersion)'
-
-    - script: |
-        python -m venv antenv
-        source antenv/bin/activate
-        python manage.py
-        python -m pip install --upgrade pip
-        pip install setup
-        pip install -r requirements.txt
-      workingDirectory: $(projectRoot)
-      displayName: "Install requirements"
-
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
         TargetFolder: $(Build.ArtifactStagingDirectory)
     - upload: $(Build.ArtifactStagingDirectory)
-      artifact: antenv
+      artifact: drop
   
   - job: 
   - deployment: VMDeploy
@@ -65,7 +54,8 @@ stages:
         preDeploy:
           steps:
           - download: current
-            artifact: antenv
+            artifact: drop
+            
           
         deploy:
           steps:
