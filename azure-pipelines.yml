@@ -65,18 +65,12 @@ stages:
     strategy:
       rolling:
         maxParallel: 2  #for percentages, mention as x%
-        
+        preDeploy:
+          steps:
+          - download: current
+            artifact: drop
+          - script: echo initialize, cleanup, backup, install certs
 
 
         deploy:
           steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: 
-                      python -m venv antenv
-                      source antenv/bin/activate
-                      python manage.py
-                      python -m pip install --upgrade pip
-                      pip install setup
-                      pip install -r requirements.txt
