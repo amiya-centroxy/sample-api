@@ -47,7 +47,7 @@ stages:
         buildType: 'current'
         downloadType: 'single'
         artifactName: 'drop'
-        downloadPath: '/home/amiya/'
+        downloadPath: $(Build.ArtifactStagingDirectory)
     
   - job: 
   - deployment: VMDeploy
