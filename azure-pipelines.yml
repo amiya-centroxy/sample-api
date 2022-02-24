@@ -52,11 +52,7 @@ stages:
        artifact: 'drop'
        fileSharePath: 'pipeline'
     
-    - task: DownloadPipelineArtifact@2
-      inputs:
-        buildType: 'current'
-        artifactName: 'drop'
-        targetPath: '$(Build.ArtifactStagingDirectory)'
+    
           
   - job: 
   - deployment: VMDeploy
