@@ -70,7 +70,7 @@ stages:
               - task: PythonScript@0
                 inputs:
                   scriptSource: 'inline'
-                  workingDirectory: '$(Build.ArtifactStagingDirectory)'
+                  workingDirectory: '$(Build.ArtifactStagingDirectory)/drop/s'
                   script: |
                     python -m venv antenv
                             source antenv/bin/activate
