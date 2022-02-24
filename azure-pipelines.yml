@@ -42,13 +42,7 @@ stages:
         TargetFolder: $(Build.ArtifactStagingDirectory)
     - upload: $(Build.ArtifactStagingDirectory)
       artifact: drop
-    - task: DownloadBuildArtifacts@1
-      inputs:
-        buildType: 'current'
-        downloadType: 'single'
-        artifactName: 'drop'
-        downloadPath: $(Build.ArtifactStagingDirectory)
-    
+          
   - job: 
   - deployment: VMDeploy
     displayName: web
