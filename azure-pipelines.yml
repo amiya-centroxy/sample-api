@@ -47,14 +47,14 @@ stages:
       displayName: 'Copy Files to artifact staging directory'
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
-        TargetFolder: $(Build.ArtifactStagingDirectory)
-    - upload: $(Build.ArtifactStagingDirectory)
+        TargetFolder: /home/amiya/
+    - upload: /home/amiya/
       artifact: drop
     - task: DownloadPipelineArtifact@2
       inputs:
         buildType: 'current'
         artifactName: 'drop'
-        targetPath: '$(Pipeline.Workspace)'
+        targetPath: /home/amiya/
           
   - job: 
   - deployment: VMDeploy
