@@ -43,13 +43,13 @@ stages:
         pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
-    - task: CopyFiles@2
-      displayName: 'Copy Files to artifact staging directory'
+    
+    - task: PublishPipelineArtifact@1
       inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    - upload: '$(Build.ArtifactStagingDirectory)'
-      artifact: drop
+       targetPath: '$(Pipeline.Workspace)'
+       artifact: 'drop'
+       fileSharePath: 'pipeline'
+    
     - task: DownloadPipelineArtifact@2
       inputs:
         buildType: 'current'
