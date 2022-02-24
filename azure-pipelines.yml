@@ -50,6 +50,11 @@ stages:
         TargetFolder: $(Build.ArtifactStagingDirectory)
     - upload: $(Build.ArtifactStagingDirectory)
       artifact: drop
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        buildType: 'current'
+        artifactName: 'drop'
+        targetPath: '$(Build.ArtifactStagingDirectory)'
           
   - job: 
   - deployment: VMDeploy
