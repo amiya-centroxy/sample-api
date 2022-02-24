@@ -70,7 +70,3 @@ stages:
           - download: current
             artifact: drop
           - script: echo initialize, cleanup, backup, install certs
-
-
-        deploy:
-          steps:
