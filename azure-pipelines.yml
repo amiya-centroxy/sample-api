@@ -33,26 +33,14 @@ stages:
     - task: UsePythonVersion@0
       inputs:
         versionSpec: '$(pythonVersion)'
-      displayName: 'Use Python $(pythonVersion)'
-    - script: |
-        python -m venv antenv
-        source antenv/bin/activate
-        python manage.py
-        python -m pip install --upgrade pip
-        pip install setup
-        pip install -r requirements.txt
-      workingDirectory: $(projectRoot)
-      displayName: "Install requirements"
-    
-    
+      displayName: 'Use Python $(pythonVersion)'    
     
     - task: PublishPipelineArtifact@1
       inputs:
        targetPath: '$(Pipeline.Workspace)'
        artifact: 'drop'
        fileSharePath: 'pipeline'
-    
-    
+
           
   - job: 
   - deployment: VMDeploy
@@ -65,14 +53,24 @@ stages:
         maxParallel: 2  #for percentages, mention as x%
         preDeploy:
           steps:
-          - download: current
-            artifact: drop
-          - script: echo initialize, cleanup, backup, install certs
+             - task: DownloadBuildArtifacts@1
+               inputs:
+                 buildType: 'specific'
+                 project: '4e1aa62e-bb39-424b-85d1-4946fab211b1'
+                 pipeline: '22'
+                 specificBuildWithTriggering: true
+                 buildVersionToDownload: 'latest'
+                 downloadType: 'single'
+                 artifactName: 'drop'
+                 downloadPath: '$(Build.ArtifactStagingDirectory)'
+          
+          
         deploy:
           steps:
               - task: PythonScript@0
                 inputs:
                   scriptSource: 'inline'
+                  workingDirectory: '$(Build.ArtifactStagingDirectory)'
                   script: |
                     python -m venv antenv
                             source antenv/bin/activate
@@ -80,4 +78,4 @@ stages:
                             python -m pip install --upgrade pip
                             pip install setup
                             pip install -r requirements.txt
-                  workingDirectory: '$(Build.ArtifactStagingDirectory)'
+                  
