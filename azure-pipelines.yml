@@ -90,11 +90,6 @@ stages:
                     echo 'Hello world'
                     ls -ltr
                   workingDirectory: '$(Build.ArtifactStagingDirectory)'
-              - task: PythonScript@0
-                inputs:
-                  scriptSource: 'inline'
-                  
-                  script: |
-                            ls -ltr 
+              
                             
                   
