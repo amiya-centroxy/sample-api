@@ -78,4 +78,4 @@ stages:
                      ls -ltr
                      echo $hello world
                      cd '$(Build.ArtifactStagingDirectory)'
-                  
+                     ls -ltr
