@@ -83,13 +83,14 @@ stages:
              
               - task: Bash@3
                 inputs:
+                  workingDirectory: '$(Build.ArtifactStagingDirectory)'
                   targetType: 'inline'
                   script: |
                     # Write your commands here
                     
                     echo 'Hello world'
                     ls -ltr
-                  workingDirectory: '$(Build.ArtifactStagingDirectory)'
-              
+                  
+                  
                             
                   
