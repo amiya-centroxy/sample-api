@@ -73,15 +73,9 @@ stages:
               - task: Bash@3
                 inputs:
                   targetType: 'inline'
+                  filePath: '$(Build.ArtifactStagingDirectory)'
                   script: |
-                    # Write your commands here
-                    
-                    echo 'Hello world'
-                    ls -ltr
-                    workingDirectory: cd '$(Build.ArtifactStagingDirectory)'/drop/s/
-                                  pip install virtualenv
-                                  virtualenv venv
-                                  source venv/bin/activate
-                                  python manage.py
-                            
+                     ls -ltr
+                     echo $hello world
+                     
                   
