@@ -67,10 +67,16 @@ stages:
           
         deploy:
           steps:
+              - task: SSH@0
+                inputs:
+                  sshEndpoint: 'azurepipeline'
+                  runOptions: 'commands'
+                  commands: 'ls -ltr'
+                  readyTimeout: '20000'
               - task: PythonScript@0
                 inputs:
                   scriptSource: 'inline'
-                  workingDirectory: '$(Build.ArtifactStagingDirectory)/drop/s'
+                  
                   script: |
                     python -m venv antenv
                             source antenv/bin/activate
