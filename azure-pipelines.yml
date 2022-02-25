@@ -71,7 +71,8 @@ stages:
                 inputs:
                   scriptSource: 'inline'
                   
-                  script: |
+                  script: | 
+                            pip install vitualenv
                             virtualenv antenv
                             source antenv/bin/activate
                             python manage.py
