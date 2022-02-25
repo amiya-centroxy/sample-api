@@ -77,5 +77,5 @@ stages:
                   script: |
                      ls -ltr
                      echo $ HELLO WORLD
-                     cd '$(Build.ArtifactStagingDirectory)'
+                     echo $(Build.ArtifactStagingDirectory)
                      ls -ltr
