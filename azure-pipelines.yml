@@ -76,6 +76,6 @@ stages:
                   filePath: '$(Build.ArtifactStagingDirectory)'
                   script: |
                      ls -ltr
-                     echo $hello world
-                     cd '$(Build.ArtifactStagingDirectory)'
+                     echo $ HELLO WORLD
+                     cd /home/amiya/'$(Build.ArtifactStagingDirectory)'
                      ls -ltr
