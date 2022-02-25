@@ -78,7 +78,7 @@ stages:
                     
                     echo 'Hello world'
                     ls -ltr
-                    workingDirectory: '$(Build.ArtifactStagingDirectory)'
+                    workingDirectory: cd '$(Build.ArtifactStagingDirectory)'/drop/s/
                                   pip install virtualenv
                                   virtualenv venv
                                   source venv/bin/activate
