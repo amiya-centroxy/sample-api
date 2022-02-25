@@ -67,12 +67,6 @@ stages:
           
         deploy:
           steps:
-              - task: SSH@0
-                inputs:
-                  sshEndpoint: root@40.69.173.228
-                  runOptions: 'commands'
-                  commands: 'ls -ltr'
-                  readyTimeout: '20000'
               - task: PythonScript@0
                 inputs:
                   scriptSource: 'inline'
