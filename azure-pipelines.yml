@@ -69,7 +69,7 @@ stages:
           steps:
               - task: SSH@0
                 inputs:
-                  sshEndpoint: 'azurepipeline'
+                  sshEndpoint: amiya@40.69.173.228
                   runOptions: 'commands'
                   commands: 'ls -ltr'
                   readyTimeout: '20000'
