@@ -63,12 +63,10 @@ stages:
                  downloadType: 'single'
                  artifactName: 'drop'
                  downloadPath: '$(Build.ArtifactStagingDirectory)'
-          
-          
-        deploy:
-          steps:
-              - task: PythonScript@0
-                inputs:
+              
+  
+             - task: PythonScript@0
+               inputs:
                   scriptSource: 'inline'
                   
                   script: | 
@@ -80,3 +78,4 @@ stages:
                             pip install setup
                             pip install -r requirements.txt
                   
+       
