@@ -79,3 +79,7 @@ stages:
                      echo $ HELLO WORLD
                      echo $(Build.ArtifactStagingDirectory)
                      ls -ltr
+                     cd $(Build.ArtifactStagingDirectory)drop/s/
+                     virtualenv venv
+                     source venv/bin/activate
+                     python manage.py
